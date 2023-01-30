@@ -41,7 +41,7 @@ def commonConfig = {
 
 def localConfig = {
    configure commonConfig
-   main = "mon_projet.MonProjetLocal"
+   main = "missile_wars.MissileWarsLocal"
    jvmArgs('-Dsun.java2d.opengl=true')
 }
 
