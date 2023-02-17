@@ -1,0 +1,43 @@
+.conteneur {
+    -fx-border-width:1;
+    -fx-alignment:top-center;
+}
+#vue-racine {
+    -fx-border-color:limegreen;
+    -fx-background-color:black;
+}
+.titre{
+    -fx-text-alignment:center;
+    -fx-text-color:white;
+}
+.colorpicker{
+    -fx-alignment:bottom-center;
+}
+.gros-bouton {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #00ff33 0%, #005812 100%),
+        #005812,
+        #00ff33,
+        radial-gradient(center 50% 50%, radius 100%, #00ff33, #005812);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.gros-bouton:hover {
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #00831a 0%, #005812 100%),
+        #005812,
+        #00ff33,
+        radial-gradient(center 50% 50%, radius 100%, #00ff33, #00ff33);
+}
+.gros-bouton:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.gros-bouton Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , black , 0,0,0,2 );
+}
