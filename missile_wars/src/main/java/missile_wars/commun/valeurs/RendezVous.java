@@ -1,10 +1,12 @@
-package pong.commun.modeles.valeurs;
+package missile_wars.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
 
 public class RendezVous implements ModelValue {
+
 	private String idRendezVous;
-    private Usager premierJoueur;
+	private Usager premierJoueur;
+
 	public String getIdRendezVous() {
 		return idRendezVous;
 	}
@@ -22,8 +24,9 @@ public class RendezVous implements ModelValue {
 	}
 
 	public RendezVous() {
+
 	}
-	@Override
+    @Override
     public String toString() {
         return premierJoueur.toString();
     }

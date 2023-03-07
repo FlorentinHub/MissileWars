@@ -6,7 +6,7 @@ import java.util.List;
 import ca.ntro.app.models.Model;
 import ca.ntro.app.models.Watch;
 import ca.ntro.app.models.WriteObjectGraph;
-import pong.commun.modeles.valeurs.RendezVous;
+import pong.commun.valeurs.RendezVous;
 import pong.frontal.vues.VueFileAttente;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package missile_wars.frontal.taches;
 
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import missile_wars.frontal.vues.VueFileAttente;
+import missile_wars.frontal.vues.VueParametres;
 import missile_wars.frontal.vues.VueRacine;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
@@ -19,11 +19,11 @@ public class Initialisation {
 
 					// ajouter
 					creerVueRacine(subTasks);
-					creerVueFileAttente(subTasks);
+					creerVueParametres(subTasks);
 
 					// ajouter
 					installerVueRacine(subTasks);
-					installerVueFileAttente(subTasks);
+					installerVueParametres(subTasks);
 
 					afficherFenetre(subTasks);
 				});
@@ -76,36 +76,36 @@ public class Initialisation {
 				});
 	}
 
-	private static void creerVueFileAttente(FrontendTasks tasks) {
+	private static void creerVueParametres(FrontendTasks tasks) {
 
-		tasks.task(create(VueFileAttente.class))
+		tasks.task(create(VueParametres.class))
 
-				.waitsFor(viewLoader(VueFileAttente.class))
+				.waitsFor(viewLoader(VueParametres.class))
 
 				.thenExecutesAndReturnsValue(inputs -> {
 
-					ViewLoader<VueFileAttente> viewLoader = inputs.get(viewLoader(VueFileAttente.class));
+					ViewLoader<VueParametres> viewLoader = inputs.get(viewLoader(VueParametres.class));
 
-					VueFileAttente vueFileAttente = viewLoader.createView();
+					VueParametres VueParametres = viewLoader.createView();
 
-					return vueFileAttente;
+					return VueParametres;
 				});
 	}
 
-	private static void installerVueFileAttente(FrontendTasks tasks) {
+	private static void installerVueParametres(FrontendTasks tasks) {
 
-		tasks.task("installerVueFileAttente")
+		tasks.task("installerVueParametres")
 
-				.waitsFor(created(VueRacine.class))
+				.waitsFor(created(VueRacine.class)) 
 
-				.waitsFor(created(VueFileAttente.class))
+				.waitsFor(created(VueParametres.class))
 
 				.thenExecutes(inputs -> {
 
 					VueRacine vueRacine = inputs.get(created(VueRacine.class));
-					VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
+					VueParametres VueParametres = inputs.get(created(VueParametres.class));
 
-					vueRacine.afficherSousVue(vueFileAttente);
+					vueRacine.afficherSousVue(VueParametres);
 
 				});
 	}

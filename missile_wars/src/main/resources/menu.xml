@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+	fx:controller="missile_wars.frontal.vues.VueMenu"
+	styleClass="conteneur"
+	id="vue-menu">
+	<Button
+		fx:id="boutonQuitterMenu"
+		text="%quitterMenu"
+		styleClass="gros-bouton"
+		id="boutonQuitterMenu"></Button>
+
+</VBox>

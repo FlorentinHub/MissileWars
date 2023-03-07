@@ -1,28 +1,17 @@
-package pong.frontal.taches;
+package missile_wars.frontal.taches;
 
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
-import pong.frontal.evenements.EvtAfficherFileAttente;
-import pong.frontal.vues.VueFileAttente;
-import pong.frontal.vues.VueRacine;
+import missile_wars.frontal.evenements.EvtAfficherParametres;
+import missile_wars.frontal.evenements.EvtAfficherMenu;
+import missile_wars.frontal.vues.VueParametres;
+import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.vues.VueRacine;
 
 public class Navigation {
 
-	public static void creerTaches(FrontendTasks tasks) {
-
-		tasks.taskGroup("Navigation")
-
-				.waitsFor("Initialisation")
-
-				.andContains(subTasks -> {
-					afficherVueParametres(subTasks);
-					creerVueMenu(subTasks);
-					afficherVueMenu(subTasks);
-
-				});
-	}
 	private static void creerVueMenu(FrontendTasks subTasks) {
 
 	    subTasks.task(create(VueMenu.class))
@@ -38,7 +27,21 @@ public class Navigation {
 	             return vueMenu;
 	         });
 	}
+	public static void creerTaches(FrontendTasks tasks) {
 
+	    tasks.taskGroup("Navigation")
+
+	         .waitsFor("Initialisation")
+
+	         .andContains(subTasks -> {
+
+	        	 afficherVueParametres(subTasks);
+
+	             creerVueMenu(subTasks);
+	             afficherVueMenu(subTasks);
+
+	         });
+	}
 	private static void afficherVueMenu(FrontendTasks subTasks) {
 
 	    subTasks.task("afficherVueMenu")
@@ -52,7 +55,7 @@ public class Navigation {
 	             VueRacine vueRacine = inputs.get(created(VueRacine.class));
 	             VueMenu vueMenu = inputs.get(created(VueMenu.class));
 
-	             vueRacine.afficherSousVue(VueMenu);
+	             vueRacine.afficherSousVue(vueMenu);
 	         });
 	}
 
@@ -60,12 +63,12 @@ public class Navigation {
 
 	    subTasks.task("afficherVueParametres")
 
-	          .waitsFor(event(EvtAfficherVueParametres.class))
+	          .waitsFor(event(EvtAfficherParametres.class))
 
 	          .thenExecutes(inputs -> {
 
 	              VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-	              VueParametres vueParametres = inputs.get(created(VueParametres.class));
+	              VueParametres VueParametres = inputs.get(created(VueParametres.class));
 
 	              vueRacine.afficherSousVue(VueParametres);
 

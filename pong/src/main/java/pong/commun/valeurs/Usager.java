@@ -1,4 +1,4 @@
-package pong.commun.modeles.valeurs;
+package pong.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
 import ca.ntro.app.models.*;

@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import pong.commun.modeles.ModeleFileAttente;
-import pong.commun.modeles.valeurs.RendezVous;
+import pong.commun.valeurs.RendezVous;
 import pong.frontal.evenements.EvtAfficherPartie;
 
 public class VueFileAttente extends ViewFx {

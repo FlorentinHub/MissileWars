@@ -1,4 +1,4 @@
-package pong.commun.modeles.valeurs;
+package pong.commun.valeurs;
 
 public class PartieEnCours extends RendezVous {
 

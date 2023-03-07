@@ -1,0 +1,5 @@
+Partie4:
+https://ntro.ca/4f5/modules/05/tutoriel/message/
+
+RENDU ICI: 
+J’ajoute un capteur d’événement pour boutonSInscrire
