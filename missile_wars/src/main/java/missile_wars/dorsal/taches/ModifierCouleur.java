@@ -22,9 +22,9 @@ public class ModifierCouleur {
 		subTasks.task("ajouterCouleur")
 				.waitsFor(message(MsgAjouterCouleur.class))
 				.thenExecutes(inputs -> {
-					MsgAjouterCouleur msgAjouterRendezVous = inputs.get(message(MsgAjouterCouleur.class));
-					ModeleParametres fileAttente = inputs.get(model(ModeleParametres.class));
-
+					MsgAjouterCouleur msgAjouterCouleur = inputs.get(message(MsgAjouterCouleur.class));
+					ModeleParametres couleur = inputs.get(model(ModeleParametres.class));
+					msgAjouterCouleur.ajouterCouleur(couleur);
 					// Prêt à ajouter un rendez-vous!
 
 				});

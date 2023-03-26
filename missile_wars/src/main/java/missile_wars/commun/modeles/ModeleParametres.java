@@ -5,14 +5,14 @@ import java.util.List;
 
 import ca.ntro.app.messages.MessageNtro;
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.Watch;
+import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
+import missile_wars.commun.maquettes.MaquetteCouleurs;
 import missile_wars.commun.messages.MsgAjouterCouleur;
-import missile_wars.commun.valeurs.RendezVous;
-import missile_wars.commun.valeurs.Usager;
+import missile_wars.commun.valeurs.Couleur;
 import missile_wars.frontal.vues.VueParametres;
 
-public class ModeleParametres implements Model, Watch, WriteObjectGraph {
+public class ModeleParametres implements Model, WatchJson, WriteObjectGraph {
 	private int max = 100;
 	private int min = 0;
 	private int soundFx = 50;
@@ -26,7 +26,7 @@ public class ModeleParametres implements Model, Watch, WriteObjectGraph {
 	}
 
 	public void setLesCouleursPrincipales(List<Couleur> couleursPrincipales) {
-		this.lesCouleursPrincipales = lesCouleursPrincipales;
+		this.lesCouleursPrincipales = couleursPrincipales;
 	}
 
 	public int getMax() {
@@ -61,24 +61,6 @@ public class ModeleParametres implements Model, Watch, WriteObjectGraph {
 		this.musicFx = musicFx;
 	}
 
-//    @Override
-//    public String toString() {
-//
-//        StringBuilder builder = new StringBuilder();
-//        int numeroRendezVous = 1;
-//
-//        for(RendezVous rendezVous : lesRendezVous) {
-//
-//            builder.append(numeroRendezVous);
-//            builder.append(". ");
-//            builder.append(rendezVous.toString());
-//            builder.append("\n");
-//
-//            numeroRendezVous++;
-//        }
-//
-//        return builder.toString();
-//    }
 	@Override
 	public String toString() {
 
@@ -94,27 +76,19 @@ public class ModeleParametres implements Model, Watch, WriteObjectGraph {
 		return builder.toString();
 	}
 
-//	@Override
-//	public String toString() {
-//		String parametres = "SoundFX" + soundFx + "MusicFx" + musicFx + "couleurPrincipale" + couleursPrincipales;
-//		return parametres;
-//	}
 	public void afficherSur(VueParametres vueParametres) {
-		vueParametres.afficherParametresEnTexte(null);
+		//vueParametres.afficherParametresEnTexte(this.toString());
+		vueParametres.viderListeCouleurs();
+            
+            // ajouter
+            for(Couleur couleur : lesCouleursPrincipales) {
+                
+                vueParametres.ajouterCouleur(couleur);
+            }
 	}
 
-	public void ajouterCouleur(MsgAjouterCouleur msg) {
-
-		Usager premiereCouleur = msg.getPremierJoueur();
-
-		// ...
+	public void ajouterCouleur(Couleur myColor) {
+		lesCouleursPrincipales.add(MaquetteCouleurs.couleurCourante());
+		MaquetteCouleurs.prochaineCouleur();
 	}
-
-	// ...
-
-//        public void ajouterA(ModeleParametres fileAttente) {
-//
-//            parametre.ajouterRendezVous(premierJoueur);
-//
-//        }
 }

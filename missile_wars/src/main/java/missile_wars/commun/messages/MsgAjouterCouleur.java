@@ -1,20 +1,24 @@
 package missile_wars.commun.messages;
 
 import ca.ntro.app.messages.MessageNtro;
-import missile_wars.commun.valeurs.Usager;
+import missile_wars.commun.modeles.ModeleParametres;
+import missile_wars.commun.valeurs.Couleur;
 
 public class MsgAjouterCouleur extends MessageNtro {
 
-    private Usager premierJoueur;
+    private Couleur couleurCourante;
 
     public MsgAjouterCouleur() {
     }
 
-    public Usager getPremierJoueur() {
-        return premierJoueur;
+    public Couleur getCouleur() {
+        return couleurCourante;
     }
 
-    public void setPremierJoueur(Usager premierJoueur) {
-        this.premierJoueur = premierJoueur;
+    public void setCouleur(Couleur couleur) {
+        this.couleurCourante = couleur;
+    }
+    public void ajouterCouleur(ModeleParametres unParametre) {
+    	unParametre.ajouterCouleur(couleurCourante);
     }
 }

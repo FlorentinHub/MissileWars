@@ -4,17 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.ntro.app.models.Model;
-import ca.ntro.app.models.Watch;
+import ca.ntro.app.models.WatchJson;
 import ca.ntro.app.models.WriteObjectGraph;
 import pong.commun.valeurs.RendezVous;
+import pong.commun.valeurs.Usager;
 import pong.frontal.vues.VueFileAttente;
 
-import java.util.List;
+public class ModeleFileAttente implements Model, WatchJson, WriteObjectGraph {
 
-public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
+	private long prochainIdRendezVous = 1;
 
-    private long prochainIdRendezVous = 1;
-    private List<RendezVous> lesRendezVous = new ArrayList<>();
+	private List<RendezVous> lesRendezVous = new ArrayList<>();
+
+	public long getProchainIdRendezVous() {
+		return prochainIdRendezVous;
+	}
+
+	public void setProchainIdRendezVous(long prochainIdRendezVous) {
+		this.prochainIdRendezVous = prochainIdRendezVous;
+	}
 
 	public List<RendezVous> getLesRendezVous() {
 		return lesRendezVous;
@@ -24,36 +32,47 @@ public class ModeleFileAttente implements Model, Watch, WriteObjectGraph {
 		this.lesRendezVous = lesRendezVous;
 	}
 
-    public long getProchainIdRendezVous() {
-        return prochainIdRendezVous;
-    }
-
-    public void setProchainIdRendezVous(long prochainIdRendezVous) {
-        this.prochainIdRendezVous = prochainIdRendezVous;
-    }
 	public ModeleFileAttente() {
 
-    }
-    public void afficherSur(VueFileAttente vueFileAttente) {
+	}
 
-        vueFileAttente.afficherRendezVousEnTexte(this.toString());
-    }
-    @Override
-    public String toString() {
+	public String ajouterRendezVous(Usager premierJoueur) {
+		String idRendezVous = genererIdRendezVous();
+		RendezVous rendezVous = new RendezVous(idRendezVous, premierJoueur);
 
-        StringBuilder builder = new StringBuilder();
-        int numeroRendezVous = 1;
+		lesRendezVous.add(rendezVous);
+		
+		return idRendezVous;
+	}
 
-        for(RendezVous rendezVous : lesRendezVous) {
+	private String genererIdRendezVous() {
+		String idRendezVous = String.valueOf(prochainIdRendezVous);
+		prochainIdRendezVous++;
 
-            builder.append(numeroRendezVous);
-            builder.append(". ");
-            builder.append(rendezVous.toString());
-            builder.append("\n");
+		return idRendezVous;
+	}
+	
+	
+	public String toString() {
 
-            numeroRendezVous++;
-        }
+		StringBuilder builder = new StringBuilder();
+		int numeroRendezVous = 1;
+		
+		for(RendezVous rendezVous : lesRendezVous) {
 
-        return builder.toString();
-    }
+			builder.append(numeroRendezVous);
+			builder.append(". ");
+			builder.append(rendezVous.toString());
+			builder.append("\n");
+
+			numeroRendezVous++;
+		}
+
+		return builder.toString();
+	}
+
+	public void afficherSur(VueFileAttente vueFileAttente) {
+		vueFileAttente.afficherRendezVousEnTexte(this.toString());
+	}
+
 }

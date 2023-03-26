@@ -25,7 +25,7 @@ public class AfficherParametres {
 					VueParametres vueParametres = inputs.get(created(VueParametres.class));
 					Modified<ModeleParametres> Parametres = inputs.get(modified(ModeleParametres.class));
 
-					ModeleParametres oldParameters = Parametres.previousValue();
+					// ModeleParametres oldParameters = Parametres.previousValue();
 					ModeleParametres currantParameters = Parametres.currentValue();
 
 					// Prêt à afficher les parametres!

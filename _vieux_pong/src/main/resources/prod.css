@@ -1,0 +1,50 @@
+#vue-partie {
+    -fx-border-color:limegreen;
+}
+.conteneur {
+    -fx-border-width:10;
+}
+
+#vue-racine {
+    -fx-border-color:darkred;
+}
+.conteneur {
+    -fx-border-width:10;
+}
+
+#vue-racine {
+    -fx-border-color:darkred;
+    -fx-background-color:black;
+}
+#vue-file-attente {
+    -fx-border-color:darkblue;
+    -fx-alignment:center;
+    -fx-background-color:black;
+}
+/* .gros-bouton {
+    -fx-font-size: 1.2em;
+} */
+
+/* .gros-bouton:pressed {
+    -fx-font-size: 1em;
+} */
+
+/* .gros-bouton:hover {
+    -fx-cursor: hand;
+} */
+
+#gros-bouton:hover {
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+        #9d4024,
+        #d86e3a,
+        radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+}
+#gros-bouton:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+#gros-bouton Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}

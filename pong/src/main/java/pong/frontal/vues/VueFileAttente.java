@@ -1,52 +1,61 @@
 package pong.frontal.vues;
 
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFx;
 import ca.ntro.core.initialization.Ntro;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import pong.commun.modeles.ModeleFileAttente;
-import pong.commun.valeurs.RendezVous;
+import pong.commun.messages.MsgAjouterRendezVous;
 import pong.frontal.evenements.EvtAfficherPartie;
+import pong.maquettes.MaquetteUsagers;
 
 public class VueFileAttente extends ViewFx {
-	public void afficher(ModeleFileAttente modele) {
 
-		List<RendezVous> rendezVous = modele.getLesRendezVous();
-	}
-	@FXML
-	private Label labelRendezVous;
 	@FXML
 	private Button boutonJoindrePartie;
 
+	@FXML
+	private Button boutonSInscrire;
+
+	@FXML
+	private Label labelRendezVous;
+
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialiser() {
+		Ntro.assertNotNull("boutonOuvrirPartie", boutonJoindrePartie);
+		Ntro.assertNotNull("boutonAjouterRendezVous", boutonSInscrire);
 		Ntro.assertNotNull("labelRendezVous", labelRendezVous);
-		Ntro.assertNotNull("boutonJoindrePartie", boutonJoindrePartie);
+
 		installerEvtAfficherPartie();
+		installerMsgAjouterRendezVous();
+	}
+
+	private void installerEvtAfficherPartie() {
+		
+		EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
+
+		boutonJoindrePartie.setOnAction(evtFx -> {
+			
+			evtNtro.trigger();
+		});
+	}
+
+	private void installerMsgAjouterRendezVous() {
+
+		MsgAjouterRendezVous msgAjouterRendezVous = NtroApp.newMessage(MsgAjouterRendezVous.class);
+
+		boutonSInscrire.setOnAction(evtFx -> {
+
+			msgAjouterRendezVous.setPremierJoueur(MaquetteUsagers.usagerCourant());
+			msgAjouterRendezVous.send();
+			
+			MaquetteUsagers.prochainUsager();
+		});
 	}
 
 	public void afficherRendezVousEnTexte(String message) {
 		labelRendezVous.setText(message);
 	}
-	private void installerEvtAfficherPartie() {
 
-		boutonJoindrePartie.setOnAction(evtFx -> {
-
-			System.out.println("[VueFileAttente] clic:" + evtFx.getEventType());
-
-		});
-		EvtAfficherPartie evtNtro = NtroApp.newEvent(EvtAfficherPartie.class);
-
-		boutonJoindrePartie.setOnAction(evtFx -> {
-
-			evtNtro.trigger();
-
-		});
-	}
 }

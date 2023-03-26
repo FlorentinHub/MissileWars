@@ -1,74 +1,63 @@
 package pong.frontal.taches;
 
+import pong.frontal.evenements.EvtAfficherFileAttente;
+import pong.frontal.evenements.EvtAfficherPartie;
+import pong.frontal.vues.VueFileAttente;
+import pong.frontal.vues.VuePartie;
+import pong.frontal.vues.VueRacine;
+import ca.ntro.app.tasks.frontend.FrontendTasks;
+
 import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
-import ca.ntro.app.frontend.ViewLoader;
-import ca.ntro.app.tasks.frontend.FrontendTasks;
-import pong.frontal.evenements.EvtAfficherFileAttente;
-import pong.frontal.vues.VueFileAttente;
-import pong.frontal.vues.VueRacine;
 
 public class Navigation {
-
+	
 	public static void creerTaches(FrontendTasks tasks) {
 
 		tasks.taskGroup("Navigation")
+		
+		     .waitsFor("Initialisation")
 
-				.waitsFor("Initialisation")
+		     .andContains(subTasks -> {
 
-				.andContains(subTasks -> {
-					afficherVueParametres(subTasks);
-					creerVueMenu(subTasks);
-					afficherVueMenu(subTasks);
+			     afficherVueFileAttente(subTasks);
 
-				});
-	}
-	private static void creerVueMenu(FrontendTasks subTasks) {
+			     afficherVuePartie(subTasks);
 
-	    subTasks.task(create(VueMenu.class))
-
-	         .waitsFor(viewLoader(VueMenu.class))
-
-	         .thenExecutesAndReturnsValue(inputs -> {
-
-	             ViewLoader<VueMenu> viewLoader = inputs.get(viewLoader(VueMenu.class));
-
-	             VueMenu vueMenu = viewLoader.createView();
-
-	             return vueMenu;
-	         });
+		     });
 	}
 
-	private static void afficherVueMenu(FrontendTasks subTasks) {
 
-	    subTasks.task("afficherVueMenu")
+	private static void afficherVuePartie(FrontendTasks tasks) {
 
-	         .waitsFor(created(VueMenu.class))
+		tasks.task("afficherVuePartie")
+		
+		     .waitsFor(created(VuePartie.class))
+		
+		     .waitsFor(event(EvtAfficherPartie.class))
+		      
+		     .thenExecutes(inputs -> {
 
-	         .waitsFor(event(EvtAfficherMenu.class))
-
-	         .thenExecutes(inputs -> {
-
-	             VueRacine vueRacine = inputs.get(created(VueRacine.class));
-	             VueMenu vueMenu = inputs.get(created(VueMenu.class));
-
-	             vueRacine.afficherSousVue(VueMenu);
-	         });
+		    	 VueRacine vueRacine = inputs.get(created(VueRacine.class));
+		    	 VuePartie vuePartie = inputs.get(created(VuePartie.class));
+		    	  
+		    	 vueRacine.afficherSousVue(vuePartie);
+		     });
 	}
 
-	private static void afficherVueParametres(FrontendTasks subTasks) {
+	private static void afficherVueFileAttente(FrontendTasks tasks) {
 
-	    subTasks.task("afficherVueParametres")
+		tasks.task("afficherVueFileAttente")
+		
+		      .waitsFor(event(EvtAfficherFileAttente.class))
+		      
+		      .thenExecutes(inputs -> {
+		    	  
+		    	  VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
+		    	  VueFileAttente vueFileAttente = inputs.get(created(VueFileAttente.class));
+		    	  
+		    	  vueRacine.afficherSousVue(vueFileAttente);
 
-	          .waitsFor(event(EvtAfficherVueParametres.class))
-
-	          .thenExecutes(inputs -> {
-
-	              VueRacine      vueRacine      = inputs.get(created(VueRacine.class));
-	              VueParametres vueParametres = inputs.get(created(VueParametres.class));
-
-	              vueRacine.afficherSousVue(VueParametres);
-
-	          });
+		      });
 	}
 }

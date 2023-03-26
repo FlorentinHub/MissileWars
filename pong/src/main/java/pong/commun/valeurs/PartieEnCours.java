@@ -1,9 +1,9 @@
 package pong.commun.valeurs;
 
 public class PartieEnCours extends RendezVous {
-
-	private Usager deuxiemeJoueur;
+	
 	private String idPartie;
+	private Usager deuxiemeJoueur;
 
 	public Usager getDeuxiemeJoueur() {
 		return deuxiemeJoueur;
@@ -20,12 +20,25 @@ public class PartieEnCours extends RendezVous {
 	public void setIdPartie(String idPartie) {
 		this.idPartie = idPartie;
 	}
-
+	
 	public PartieEnCours() {
 		super();
 	}
-    @Override
-    public String toString() {
-        return getPremierJoueur().getPrenom() + " Vs " + deuxiemeJoueur.getPrenom();
-    }
+
+	public PartieEnCours(String idRendezVous, 
+			             Usager premierJoueur,
+			             Usager deuxiemeJoueur,
+			             String idPartie) {
+
+		super(idRendezVous, premierJoueur);
+
+		setIdPartie(idPartie);
+		setDeuxiemeJoueur(deuxiemeJoueur);
+	}
+
+	
+	@Override
+	public String toString() {
+		return getPremierJoueur().getPrenom() + " Vs " + deuxiemeJoueur.getPrenom();
+	}
 }

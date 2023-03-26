@@ -5,14 +5,17 @@ import ca.ntro.app.frontend.FrontendFx;
 import ca.ntro.app.frontend.ViewRegistrarFx;
 import ca.ntro.app.frontend.events.EventRegistrar;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import ca.ntro.app.*;
 import missile_wars.frontal.evenements.EvtAfficherParametres;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.taches.AfficherParametres;
 import missile_wars.frontal.taches.Initialisation;
 import missile_wars.frontal.taches.Navigation;
 import missile_wars.frontal.vues.VueParametres;
-import missile_wars.frontal.vues.VueMenu;
 import missile_wars.frontal.vues.VueRacine;
+import missile_wars.frontal.vues.VueMenu;
+import missile_wars.frontal.fragments.FragmentCouleur;
+
 
 public class FrontalMissileWars implements FrontendFx {
 
@@ -42,7 +45,8 @@ public class FrontalMissileWars implements FrontendFx {
 
 		registrar.registerResources(NtroApp.locale("en"), "/chaines_en.properties");
 		registrar.registerView(VueMenu.class, "/menu.xml");
-
+		//Fragment Couleur:
+		registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");
 	}
 
 	@Override

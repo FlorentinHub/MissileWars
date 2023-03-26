@@ -6,13 +6,13 @@ import java.util.ResourceBundle;
 
 import ca.ntro.app.views.ViewFx;
 import javafx.scene.layout.Pane;
-import missile_wars.commun.modeles.Couleur;
 import missile_wars.commun.modeles.ModeleParametres;
+import missile_wars.commun.valeurs.Couleur;
 
 public class VueRacine extends ViewFx {
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialiser() {
 
 	}
 

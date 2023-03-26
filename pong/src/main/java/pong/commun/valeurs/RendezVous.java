@@ -3,15 +3,9 @@ package pong.commun.valeurs;
 import ca.ntro.app.models.ModelValue;
 
 public class RendezVous implements ModelValue {
+	
 	private String idRendezVous;
-    private Usager premierJoueur;
-	public String getIdRendezVous() {
-		return idRendezVous;
-	}
-
-	public void setIdRendezVous(String idRendezVous) {
-		this.idRendezVous = idRendezVous;
-	}
+	private Usager premierJoueur;
 
 	public Usager getPremierJoueur() {
 		return premierJoueur;
@@ -21,10 +15,26 @@ public class RendezVous implements ModelValue {
 		this.premierJoueur = premierJoueur;
 	}
 
+	public String getIdRendezVous() {
+		return idRendezVous;
+	}
+
+	public void setIdRendezVous(String idRendezVous) {
+		this.idRendezVous = idRendezVous;
+	}
+
+
 	public RendezVous() {
 	}
+
+	public RendezVous(String idRendezVous, Usager premierJoueur) {
+		setIdRendezVous(idRendezVous);
+		setPremierJoueur(premierJoueur);
+	}
+
 	@Override
-    public String toString() {
-        return premierJoueur.toString();
-    }
+	public String toString() {
+		return premierJoueur.toString();
+	}
+
 }

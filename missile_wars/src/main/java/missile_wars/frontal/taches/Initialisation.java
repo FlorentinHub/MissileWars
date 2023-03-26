@@ -2,6 +2,7 @@ package missile_wars.frontal.taches;
 
 import ca.ntro.app.services.Window;
 import ca.ntro.app.tasks.frontend.FrontendTasks;
+import missile_wars.frontal.fragments.FragmentCouleur;
 import missile_wars.frontal.vues.VueParametres;
 import missile_wars.frontal.vues.VueRacine;
 
@@ -79,6 +80,7 @@ public class Initialisation {
 	private static void creerVueParametres(FrontendTasks tasks) {
 
 		tasks.task(create(VueParametres.class))
+				.waitsFor(viewLoader(FragmentCouleur.class))
 
 				.waitsFor(viewLoader(VueParametres.class))
 
@@ -87,7 +89,7 @@ public class Initialisation {
 					ViewLoader<VueParametres> viewLoader = inputs.get(viewLoader(VueParametres.class));
 
 					VueParametres VueParametres = viewLoader.createView();
-
+					VueParametres.setViewLoaderParametres(ViewLoaderParametres);
 					return VueParametres;
 				});
 	}
@@ -95,7 +97,6 @@ public class Initialisation {
 	private static void installerVueParametres(FrontendTasks tasks) {
 
 		tasks.task("installerVueParametres")
-
 				.waitsFor(created(VueRacine.class)) 
 
 				.waitsFor(created(VueParametres.class))
@@ -108,5 +109,8 @@ public class Initialisation {
 					vueRacine.afficherSousVue(VueParametres);
 
 				});
+
+				
+
 	}
 }

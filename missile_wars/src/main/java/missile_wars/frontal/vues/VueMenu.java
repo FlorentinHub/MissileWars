@@ -16,7 +16,7 @@ public class VueMenu extends ViewFx {
 	private Button boutonQuitterMenu;
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialiser() {	
 		Ntro.assertNotNull("boutonQuitterMenu", boutonQuitterMenu);
 		installerEvtAfficherParametres();
 	}

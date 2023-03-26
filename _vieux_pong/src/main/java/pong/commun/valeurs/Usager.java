@@ -1,12 +1,13 @@
-package missile_wars.commun.valeurs;
+package pong.commun.valeurs;
 
 import ca.ntro.app.models.ModelValue;
+import ca.ntro.app.models.*;
 
 public class Usager implements ModelValue {
 	private String id;
 	private String prenom;
 	private String nom;
-
+	
 	public String getId() {
 		return id;
 	}
@@ -33,20 +34,12 @@ public class Usager implements ModelValue {
 
 	public Usager() {
 	}
+    @Override
+    public String toString() {
+        return nomComplet();
+    }
 
-	@Override
-	public String toString() {
-		return nomComplet();
-	}
-
-	public String nomComplet() {
-		return prenom + " " + nom;
-	}
-
-	// ajouter
-	public Usager(String id, String prenom, String nom) {
-		setId(id);
-		setPrenom(prenom);
-		setNom(nom);
-	}
+    public String nomComplet() {
+        return prenom + " " + nom;
+    }
 }
