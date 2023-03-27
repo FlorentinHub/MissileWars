@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
+<?import missile_wars.frontal.controles.CanvasPartie?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
 <VBox xmlns:fx="http://javafx.com/fxml"
 	fx:controller="missile_wars.frontal.vues.VueMenu"
 	styleClass="conteneur"
@@ -10,5 +14,38 @@
 		text="%quitterMenu"
 		styleClass="gros-bouton"
 		id="boutonQuitterMenu"></Button>
+		<VBox
+    styleClass="conteneur"
+    id="vue-partie">
+
+    <Pane styleClass="petit-espace-vertical"/>
+
+    <HBox VBox.vgrow="ALWAYS" styleClass="conteneur">
+
+        <Pane styleClass="petit-espace-horizontal"/>
+
+        <CanvasPartie 
+            styleClass="canvasPartie"
+            HBox.hgrow="ALWAYS" 
+            fx:id="canvasPartie" 
+            id="canvas-partie">
+        </CanvasPartie>
+
+        <Pane styleClass="petit-espace-horizontal"/>
+
+    </HBox>
+
+    <Pane styleClass="petit-espace-vertical"/>
+
+    <Button 
+        fx:id="boutonQuitterPartie" 
+        text="%quitterPartie"
+        styleClass="gros-bouton"
+        id="bouton-quitter-partie">
+    </Button>
+
+    <Pane styleClass="petit-espace-vertical"/>
+
+</VBox>
 
 </VBox>

@@ -52,14 +52,16 @@ public class Couleur implements ModelValue {
 	public String toString() {
 		String retour;
 		retour = "rouge";
+		if (getRouge() > getBleu()) { 
+			retour = "Rouge";
+		}
 		return retour;
 	}
 
-	public FragmentCouleur creerFragment(ViewLoader<FragmentCouleur> ViewLoaderParametres) {
-
-		return ViewLoaderParametres.createView();
+	public FragmentCouleur creerFragment(ViewLoader<FragmentCouleur> viewLoaderParametres) {
+		return viewLoaderParametres.createView();
 	}
 	public void afficherSur(FragmentCouleur fragmentCouleur) {
-		fragmentCouleur.afficherCouleur(Couleur.get);
+		fragmentCouleur.afficherCouleur(this.toString());
 	}
 }

@@ -27,7 +27,16 @@ public class VueParametres extends ViewFx {
 	private Button boutonAddColor;
 	@FXML
     private VBox conteneurCouleurs;
-    private ViewLoader<FragmentCouleur> viewLoaderCouleur;
+	 
+	private ViewLoader<FragmentCouleur> viewLoaderCouleurs;
+
+	public ViewLoader<FragmentCouleur> getViewLoaderCouleurs() {
+		return viewLoaderCouleurs;
+	}
+
+	public void setViewLoaderCouleurs(ViewLoader<FragmentCouleur> viewLoaderCouleurs) {
+		this.viewLoaderCouleurs = viewLoaderCouleurs;
+	}
 
 	@Override
 	public void initialiser() {
@@ -63,13 +72,11 @@ public class VueParametres extends ViewFx {
         });
     }
 	public void ajouterCouleur(Couleur couleur) {
-		FragmentCouleur fragment = couleur.creerFragment(viewLoaderCouleur);
+		FragmentCouleur fragment = couleur.creerFragment(viewLoaderCouleurs);
 		couleur.afficherSur(fragment);
 
 		conteneurCouleurs.getChildren().add(fragment.rootNode());
 	}
-	
-	// ajouter
 	public void viderListeCouleurs() {
 		conteneurCouleurs.getChildren().clear();
 	}

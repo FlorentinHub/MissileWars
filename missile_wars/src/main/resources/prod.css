@@ -88,3 +88,11 @@
    -fx-text-fill: derive(black, 25%);
    -fx-font-size:3em;
 }
+.canvasPartie {
+    -fx-min-width:720;
+    -fx-min-height:720;
+    -fx-max-width:1000;
+    -fx-max-height:1000;
+    -fx-border-width:1;
+    -fx-border-color:limegreen;
+}

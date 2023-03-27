@@ -42,7 +42,7 @@
 			<!-- ajouter -->
 			<HBox styleClass="conteneur,conteneur-parent">
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
-				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurRendezVous" id="conteneur-rendez-vous">
+				<VBox HBox.hgrow="ALWAYS" styleClass="conteneur" fx:id="conteneurCouleurs" id="conteneur-Couleurs">
 				</VBox>
 				<Pane HBox.hgrow="ALWAYS" styleClass="grand-espace-horizontal"/>
 			</HBox>

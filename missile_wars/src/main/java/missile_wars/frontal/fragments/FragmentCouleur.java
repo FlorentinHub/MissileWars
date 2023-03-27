@@ -1,12 +1,12 @@
 package missile_wars.frontal.fragments;
 
-import java.awt.Button;
-import java.awt.Label;
 
 import ca.ntro.app.NtroApp;
 import ca.ntro.app.views.ViewFragmentFx;
 import ca.ntro.core.initialization.Ntro;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import missile_wars.frontal.evenements.EvtAfficherMenu;
 import missile_wars.frontal.evenements.EvtAfficherParametres;
 
@@ -14,16 +14,16 @@ import missile_wars.frontal.evenements.EvtAfficherParametres;
 public class FragmentCouleur extends ViewFragmentFx {
 
     @FXML
-    private Button boutonMenu;
+    private Button boutonJoindrePartie;
 
     @FXML
-    private Label labelCouleurLabel;
+    private Label labelNomCouleur;
 
     @Override
     public void initialiser() {
 
-        Ntro.assertNotNull("boutonMenu", boutonMenu);
-        Ntro.assertNotNull("labelCouleurLabel", labelCouleurLabel);
+        Ntro.assertNotNull("boutonJoindrePartie", boutonJoindrePartie);
+        Ntro.assertNotNull("labelNomCouleur", labelNomCouleur);
 
         installerEvtAfficherMenu();
     }
@@ -32,13 +32,13 @@ public class FragmentCouleur extends ViewFragmentFx {
 
         EvtAfficherMenu evtNtro = NtroApp.newEvent(EvtAfficherMenu.class);
 
-        boutonMenu.setOnAction(evtFx -> {
+        boutonJoindrePartie.setOnAction(evtFx -> {
 
             evtNtro.trigger();
         });
     }
 
     public void afficherCouleur(String couleur) {
-        labelCouleurLabel.setText(couleur);
+        labelNomCouleur.setText(couleur);
     }
 }

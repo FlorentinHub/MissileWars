@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="pong.frontal.fragments.FragmentCouleur" 
+    fx:controller="missile_wars.frontal.fragments.FragmentCouleur" 
     styleClass="conteneur,vue-couleur">
     <HBox>
         <Pane styleClass="grand-espace-horizontal"/>
@@ -17,7 +17,7 @@
             </Button>
             <Pane minHeight="20" minWidth="20"/>
             <Label
-                fx:id="labelNomPremierJoueur"
+                fx:id="labelNomCouleur"
                 styleClass="label-nom-joueur">
             </Label>
             <Pane minHeight="20" minWidth="20"/>
