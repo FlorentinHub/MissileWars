@@ -10,6 +10,7 @@ import missile_wars.commun.modeles.ModeleParametres;
 import missile_wars.commun.valeurs.Couleur;
 import missile_wars.dorsal.DorsalMissileWars;
 import missile_wars.frontal.FrontalMissileWars;
+import missile_wars.commun.Declarations;
 
 public class MissileWarsLocal implements NtroClientFx {
 
@@ -29,13 +30,12 @@ public class MissileWarsLocal implements NtroClientFx {
 
 	@Override
 	public void registerMessages(MessageRegistrar registrar) {
-		registrar.registerMessage(MsgAjouterCouleur.class);
+		Declarations.declarerMessage(registrar);
 	}
 
 	@Override
 	public void registerModels(ModelRegistrar registrar) {
-		registrar.registerModel(ModeleParametres.class);
-		registrar.registerValue(Couleur.class);
+		Declarations.declarerModels(registrar);
 	}
 
 }

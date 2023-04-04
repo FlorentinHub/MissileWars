@@ -35,7 +35,7 @@ public class MaquetteCouleurs {
     	couleurCourante = couleurAleatoire();
     }
 
-    private static Couleur couleurAleatoire() {
+    static Couleur couleurAleatoire() {
     	Couleur uneCouleur = new Couleur();
     	Random nbAleatoire= new Random();
         uneCouleur.setRGB(

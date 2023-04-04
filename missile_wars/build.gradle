@@ -58,3 +58,24 @@ task(localEn, dependsOn: 'classes', type: JavaExec) {
    configure localConfig
    jvmArgs('-Duser.language=en')
 }
+// ajouter
+def clientConfig = {
+   configure commonConfig
+   mainClass = "missile_wars.ClientMissileWars"
+   jvmArgs('-Dsun.java2d.opengl=true')
+}
+
+// ajouter
+task(client, dependsOn: 'classes', type: JavaExec) {
+   configure clientConfig
+}
+// ajouter
+def serverConfig = {
+   configure commonConfig
+   mainClass = "missile_wars.ServeurMissileWars"
+}
+
+// ajouter
+task(serveur, dependsOn: 'classes', type: JavaExec) {
+   configure serverConfig
+}

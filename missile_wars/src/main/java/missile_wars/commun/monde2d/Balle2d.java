@@ -3,15 +3,21 @@ package missile_wars.commun.monde2d;
 import ca.ntro.app.fx.controls.ResizableWorld2dCanvasFx;
 import ca.ntro.app.fx.controls.World2dMouseEventFx;
 import ca.ntro.core.initialization.Ntro;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 
 public class Balle2d extends ObjetPong2d {
+    
     private static final double EPSILON = 1;
+    private AudioClip sonPoc = new AudioClip(Balle2d.class.getResource("/poc.wav").toString());
 
     public Balle2d() {
         super();
     }
+    private void jouerSonPoc() {
+	    sonPoc.play();
+	}
 
     @Override
     public void initialize() {
@@ -71,6 +77,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappePlancher() {
+        sonPoc.play();
         return collidesWith(0,
                 getWorld2d().getHeight(),
                 getWorld2d().getWidth(),
@@ -78,6 +85,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappePlafond() {
+        sonPoc.play();
         return collidesWith(0,
                 0,
                 getWorld2d().getWidth(),
@@ -85,6 +93,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappeMurDroit() {
+        sonPoc.play();
         return collidesWith(getWorld2d().getWidth(),
                 0,
                 1,
@@ -92,6 +101,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappeMurGauche() {
+        sonPoc.play();
         return collidesWith(0,
                 0,
                 1,
