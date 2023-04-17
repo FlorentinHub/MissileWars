@@ -4,6 +4,8 @@ import ca.ntro.app.frontend.ViewLoader;
 import ca.ntro.app.models.ModelValue;
 import missile_wars.frontal.fragments.FragmentCouleur;
 
+import java.util.Random;
+
 public class Couleur implements ModelValue {
 	private int rouge;
 	private int vert;
@@ -50,17 +52,27 @@ public class Couleur implements ModelValue {
 	}
 
 	public String toString() {
-		String retour;
-		retour = "rouge";
-		if (getRouge() > getBleu()) { 
-			retour = "Rouge";
-		}
-		return retour;
+		// Définition de noms de couleurs
+		String[] colors = {
+			"Red", "Green", "Blue", "Yellow", "Orange", "Purple", "Pink", "Brown", "Gray", "Black", "White",
+			"Cyan", "Magenta", "Lime", "Turquoise", "Olive", "Maroon", "Navy", "Teal", "Silver", "Gold",
+			"Beige", "Lavender", "Mint", "Peach", "Plum", "Salmon", "Slate", "Violet", "Amber", "Aqua",
+			"Azure", "Charcoal", "Crimson", "Cobalt", "Coral", "Cinnamon", "Coffee", "Copper", "Cream", "Denim",
+			"Emerald", "Forest", "Fuchsia", "Garnet", "Hazel", "Indigo", "Ivory", "Jade", "Khaki", "Lemon",
+			"Lilac", "Mauve", "Mustard", "Nude", "Ochre", "Olive", "Onyx", "Pewter", "Ruby", "Rust",
+			"Saffron", "Scarlet", "Sienna", "Sky", "Slate", "Steel", "Taupe", "Terra cotta", "Topaz", "Tangerine",
+			"Tiffany", "Tomato", "Tropical", "Tulip", "Turquoise", "Wheat", "Wisteria", "Zaffre", "Zinnia", "Sapphire"
+		};
+        Random r=new Random(); 
+        int randomNumber=r.nextInt(colors.length); 
+		System.out.println(colors[randomNumber]); 
+        return(colors[randomNumber]); 
 	}
 
 	public FragmentCouleur creerFragment(ViewLoader<FragmentCouleur> viewLoaderParametres) {
 		return viewLoaderParametres.createView();
 	}
+
 	public void afficherSur(FragmentCouleur fragmentCouleur) {
 		fragmentCouleur.afficherCouleur(this.toString());
 	}

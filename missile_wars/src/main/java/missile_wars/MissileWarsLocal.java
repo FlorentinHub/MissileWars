@@ -37,5 +37,6 @@ public class MissileWarsLocal implements NtroClientFx {
 	public void registerModels(ModelRegistrar registrar) {
 		Declarations.declarerModels(registrar);
 	}
+	
 
 }

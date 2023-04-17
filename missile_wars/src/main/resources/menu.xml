@@ -9,11 +9,6 @@
 	fx:controller="missile_wars.frontal.vues.VueMenu"
 	styleClass="conteneur"
 	id="vue-menu">
-	<Button
-		fx:id="boutonQuitterMenu"
-		text="%quitterMenu"
-		styleClass="gros-bouton"
-		id="boutonQuitterMenu"></Button>
 		<VBox
     styleClass="conteneur"
     id="vue-partie">
@@ -37,12 +32,18 @@
 
     <Pane styleClass="petit-espace-vertical"/>
 
-    <Button 
+    <Button
+    fx:id="boutonQuitterMenu"
+    text="%quitterMenu"
+    styleClass="gros-bouton"
+    id="boutonQuitterMenu">
+    </Button>
+    <!-- <Button 
         fx:id="boutonQuitterPartie" 
         text="%quitterPartie"
         styleClass="gros-bouton"
         id="bouton-quitter-partie">
-    </Button>
+    </Button> -->
 
     <Pane styleClass="petit-espace-vertical"/>
 

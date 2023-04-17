@@ -4,7 +4,9 @@ import static ca.ntro.app.tasks.frontend.FrontendTasks.*;
 
 import ca.ntro.app.tasks.frontend.FrontendTasks;
 import ca.ntro.core.reflection.observer.Modified;
+import javafx.scene.media.AudioClip;
 import missile_wars.commun.modeles.ModeleParametres;
+import missile_wars.commun.monde2d.Balle2d;
 import missile_wars.frontal.vues.VueParametres;
 
 public class AfficherParametres {

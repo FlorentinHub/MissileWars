@@ -9,6 +9,8 @@ import missile_wars.frontal.vues.VueMenu;
 
 public class AfficherPartie {
 
+    public static boolean partieEnCours = false;
+
     public static void creerTaches(FrontendTasks tasks) {
 
         creerDonneesVuePartie(tasks);
@@ -38,9 +40,13 @@ public class AfficherPartie {
                     DonneesVuePartie donneesVuePartie = inputs.get(created(DonneesVuePartie.class));
                     VueMenu vueMenu = inputs.get(created(VueMenu.class));
 
-                    // afficher le monde 2d
+                    if(partieEnCours){
+                          // afficher le monde 2d
                     donneesVuePartie.reagirTempsQuiPasse(tick.elapsedTime());
-                    donneesVuePartie.afficherSur(vueMenu);
+                    donneesVuePartie.afficherSur(vueMenu);  
+                    }
+
+                
                 });
     }
 

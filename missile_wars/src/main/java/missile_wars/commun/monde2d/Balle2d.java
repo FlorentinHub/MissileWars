@@ -77,7 +77,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappePlancher() {
-        sonPoc.play();
+        jouerSonPoc();
         return collidesWith(0,
                 getWorld2d().getHeight(),
                 getWorld2d().getWidth(),
@@ -85,7 +85,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappePlafond() {
-        sonPoc.play();
+        jouerSonPoc();
         return collidesWith(0,
                 0,
                 getWorld2d().getWidth(),
@@ -93,7 +93,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappeMurDroit() {
-        sonPoc.play();
+        jouerSonPoc();
         return collidesWith(getWorld2d().getWidth(),
                 0,
                 1,
@@ -101,7 +101,7 @@ public class Balle2d extends ObjetPong2d {
     }
 
     private boolean balleFrappeMurGauche() {
-        sonPoc.play();
+        jouerSonPoc();
         return collidesWith(0,
                 0,
                 1,

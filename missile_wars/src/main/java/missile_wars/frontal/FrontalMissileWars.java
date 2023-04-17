@@ -45,6 +45,8 @@ public class FrontalMissileWars implements FrontendFx {
 		registrar.registerDefaultResources("/chaines_fr.properties");
 
 		registrar.registerResources(NtroApp.locale("en"), "/chaines_en.properties");
+		registrar.registerResources(NtroApp.locale("qc"), "/chaines_qc.properties");
+		registrar.registerResources(NtroApp.locale("ch"), "/chaines_ch.properties");
 		registrar.registerView(VueMenu.class, "/menu.xml");
 		//Fragment Couleur:
 		registrar.registerFragment(FragmentCouleur.class, "/fragments/couleur.xml");

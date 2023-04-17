@@ -19,7 +19,7 @@ public class MondePong2d extends World2dFx {
         setHeight(HAUTEUR_MONDE);
         balle = new Balle2d();
         addObject2d(balle);
-        for(int i = 0; i < 100; i++) {
+        for(int i = 0; i < 1; i++) {
             addObject2d(new Balle2d());
         }
     }

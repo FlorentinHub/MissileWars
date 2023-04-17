@@ -37,9 +37,8 @@ public class Initialisation {
 				.waitsFor(window())
 
 				.thenExecutes(inputs -> {
-
 					Window window = inputs.get(window());
-
+					window.fullscreen(true);
 					window.show();
 				});
 	}
@@ -100,7 +99,6 @@ public class Initialisation {
 				.waitsFor(created(VueParametres.class))
 
 				.thenExecutes(inputs -> {
-
 					VueRacine vueRacine = inputs.get(created(VueRacine.class));
 					VueParametres VueParametres = inputs.get(created(VueParametres.class));
 
